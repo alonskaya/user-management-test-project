@@ -1,0 +1,28 @@
+easy_admin:
+  site_name: 'User management'
+  user:
+    name_property_path: 'email'
+    display_avatar: false
+  design:
+    menu:
+      - User
+      - Group
+
+  entities:
+    User:
+      class: App\Entity\User
+      list:
+        fields: ['id', 'email', 'lastName', 'firstName', 'state', 'creationDate', { property: 'groups', type: 'array' }]
+      form:
+        fields: ['email', 'lastName', 'firstName', 'state', 'creationDate']
+      search:
+        fields: ['email', 'lastName', 'firstName', 'state', 'creationDate', 'groups.name', {separated: true, property: enabled}]
+
+    Group:
+      class: App\Entity\Group
+      list:
+        fields: ['id', 'name']
+      form:
+        fields: ['name']
+      search:
+        fields: ['name']

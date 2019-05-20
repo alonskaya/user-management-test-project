@@ -10,8 +10,10 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  * Class UserRepository
  * @package App\Repository
  */
-class UserRepository extends ServiceEntityRepository implements DefaultRepositoryInterface
+class UserRepository extends ServiceEntityRepository implements AutoJoinRepositoryInterface
 {
+    use AutoJoinRepositoryTrait;
+
     /**
      * UserRepository constructor.
      *
@@ -20,27 +22,5 @@ class UserRepository extends ServiceEntityRepository implements DefaultRepositor
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
-    }
-
-    /**
-     * @param array $criteria
-     *
-     * @return array
-     */
-    public function findByWithJoins(array $criteria): array
-    {
-        $joinFields   = ['groups'];
-        $queryBuilder = $this->createQueryBuilder('u');
-
-        foreach ($criteria as $name => $criterion) {
-            if (in_array($name, $joinFields, true)) {
-                $queryBuilder->innerJoin('u.' . $name, $name)
-                    ->where($queryBuilder->expr()->eq($name . '.id', $criterion));
-            } else {
-                $queryBuilder->where($criterion);
-            }
-        }
-
-        return $queryBuilder->getQuery()->getResult();
     }
 }

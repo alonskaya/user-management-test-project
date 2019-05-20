@@ -3,10 +3,10 @@
 namespace App\Repository;
 
 /**
- * Interface DefaultRepositoryInterface
+ * Interface AutoJoinRepositoryInterface
  * @package App\Repository
  */
-interface DefaultRepositoryInterface
+interface AutoJoinRepositoryInterface
 {
     /**
      * @param array $criteria

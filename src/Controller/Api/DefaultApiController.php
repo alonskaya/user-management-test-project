@@ -2,6 +2,7 @@
 
 namespace App\Controller\Api;
 
+use App\Repository\AutoJoinRepositoryInterface;
 use App\Repository\DefaultRepositoryInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +31,7 @@ abstract class DefaultApiController extends AbstractFOSRestController
     protected $entityManager;
 
     /**
-     * @var DefaultRepositoryInterface
+     * @var AutoJoinRepositoryInterface
      */
     protected $repository;
 
@@ -211,4 +212,3 @@ abstract class DefaultApiController extends AbstractFOSRestController
         return json_decode($serializer->serialize($entity, 'json'), true);
     }
 }
-
