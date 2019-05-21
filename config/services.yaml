@@ -9,6 +9,7 @@ parameters:
 
     app.form.user_type.class: App\Form\UserType
     app.form.group_type.class: App\Form\GroupType
+    locale: 'en'
 
 services:
     # default configuration for services in *this* file
