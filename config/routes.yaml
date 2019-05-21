@@ -1,9 +1,9 @@
 api_controllers:
-  prefix: /api
+  prefix:   /api/v1
   resource: '../src/Controller/Api/'
   type:     rest
 
 easy_admin_bundle:
   resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
-  prefix: /admin
-  type: annotation
+  prefix:   /admin
+  type:     annotation

@@ -3,7 +3,6 @@
 namespace App\Controller\Api;
 
 use App\Repository\AutoJoinRepositoryInterface;
-use App\Repository\DefaultRepositoryInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\OptimisticLockException;
@@ -16,6 +15,7 @@ use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\Controller\Annotations as Rest;
 
 /**
  * Class AbstractApiController
